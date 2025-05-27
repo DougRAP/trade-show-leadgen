@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Text } from '@react-three/drei'
+// components/RouletteWheel.tsx - FIXED VERSION (removed unused imports/variables)
+import React, { useRef, useEffect } from 'react'
+import { Canvas } from '@react-three/fiber'
+import { Text } from '@react-three/drei'
 import * as THREE from 'three'
 import { gsap } from 'gsap'
 import { PRIZES } from '../lib/prizes'
@@ -12,7 +13,6 @@ interface WheelProps {
 
 const WheelMesh: React.FC<WheelProps> = ({ isSpinning, onSpinComplete }) => {
   const wheelRef = useRef<THREE.Group>(null)
-  const [rotation, setRotation] = useState(0)
 
   useEffect(() => {
     if (isSpinning && wheelRef.current) {
@@ -43,8 +43,6 @@ const WheelMesh: React.FC<WheelProps> = ({ isSpinning, onSpinComplete }) => {
       {/* Wheel segments */}
       {PRIZES.map((prize, index) => {
         const angle = index * segmentAngle
-        const x = Math.cos(angle) * 2
-        const y = Math.sin(angle) * 2
         
         return (
           <group key={prize.id} rotation={[0, 0, angle]}>

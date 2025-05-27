@@ -1,6 +1,7 @@
+// pages/api/leads.ts - FIXED VERSION
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { supabase } from '../../lib/supabase'
-import { generateToken, validateEmail, validatePhone } from '../../lib/utils'
+import { validateEmail, validatePhone } from '../../lib/utils'
 
 export default async function handler(
   req: NextApiRequest,

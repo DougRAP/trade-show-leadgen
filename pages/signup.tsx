@@ -1,3 +1,4 @@
+// pages/signup.tsx - FIXED VERSION (Key fixes: removed unused error variable, fixed apostrophe)
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { validateEmail, validatePhone, formatPhone } from '../lib/utils'
@@ -91,7 +92,7 @@ const SignupPage: React.FC = () => {
       } else {
         throw new Error('Failed to submit')
       }
-    } catch (error) {
+    } catch {
       setErrors({ submit: 'Something went wrong. Please try again.' })
     } finally {
       setIsSubmitting(false)
@@ -114,7 +115,7 @@ const SignupPage: React.FC = () => {
             Get Your Free Spin!
           </h1>
           <p className="text-gray-300 text-sm">
-            You're interested in: <span className="font-bold text-white">{offer.title}</span>
+            You&apos;re interested in: <span className="font-bold text-white">{offer.title}</span>
           </p>
         </div>
 

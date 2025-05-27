@@ -1,5 +1,5 @@
 import React from 'react'
-import QRCode from 'qrcode.react'
+import { QRCodeSVG } from 'qrcode.react'
 import { Prize } from '../types'
 
 interface ResultModalProps {
@@ -33,7 +33,7 @@ const ResultModal: React.FC<ResultModalProps> = ({
         </div>
 
         <div className="bg-white p-4 rounded-lg mb-6">
-          <QRCode 
+          <QRCodeSVG 
             value={token} 
             size={120}
             className="mx-auto"
